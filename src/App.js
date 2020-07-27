@@ -1,44 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import tasks from './samples/task.json';
+import Tasks from './components/tasks';
 
 
-class Helloworld extends React.Component {
-
+class App extends Component {
+  
   state = {
-    show: true
-  }
-
-  toggleShow = () => {
-    this.setState({show: !this.state.show})
+    tasks: tasks
   }
 
   render() {
-
-    if (this.state.show) {
-      return (
-        <div id="hello">
-          <h3>{this.props.subtitle}</h3>
-          {this.props.mytext}
-          <button onClick={this.toggleShow}>Cambiar Estado</button>
-        </div>)
-    } else {
-      return <h1>
-        <button onClick={this.toggleShow}>Cambiar Estado</button>
-        No hay elementos</h1>
-      
-    }
+    return <div>
+      <Tasks tasks={this.state.tasks}/>
+    </div>
   }
 }
-
-function App() {
-  return (
-    <div>this is my component: 
-      <Helloworld mytext="Hello Fast" subtitle="loremp ispum"/>
-      <Helloworld mytext="Hello Martin" subtitle="loremp" />
-      <Helloworld mytext="Hello ?" subtitle="Hola !!!" />
-    </div>
-  );
-}
-
 
 export default App;
