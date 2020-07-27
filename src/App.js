@@ -1,28 +1,22 @@
 import React from 'react';
 import './App.css';
 
-function Helloworld () {
-  return <div id="hello">Hello World</div>
+function Helloworld (objProps) {
+  return <div id="hello">
+            <h3>{objProps.subtitle}</h3>
+            {objProps.mytext}
+          </div>
 }
 
-//3 Formas de declarar le mismo componente constante clase y funct
-
-const App = () => <div>This is my component: <Helloworld/></div>
-
-/*
-class App extends React.Component {
-  render() {
-    return <div>This is my component: <Helloworld/></div>
-  }
-}
-*/
-
-/*
 function App() {
   return (
-    <div>this is my component: <Helloworld/></div>
+    <div>this is my component: 
+      <Helloworld mytext="Hello Fast" subtitle="loremp ispum"/>
+      <Helloworld mytext="Hello Martin" />
+      <Helloworld mytext="Hello ?" subtitle="Hola !!!" />
+    </div>
   );
 }
-*/
+
 
 export default App;
